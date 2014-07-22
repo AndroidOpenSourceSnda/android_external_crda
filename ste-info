@@ -1,0 +1,30 @@
+============================================================
+ Editing the regulatory database
+============================================================
+
+ More detaild instructions how to edit regulatory database
+ and sign it can be found on:
+ http://wireless.kernel.org/en/developers/Regulatory
+
+ The regulatory.bin file is signed with his RSA private key,
+ and the RSA public key is embedded as part of CRDA.
+ This allows verification of the authorship and integrity of
+ the regulatory database.
+
+ The public key, embebbed into CRDA, needs to be converted
+ into C header file form. This is handled by python key2pub.py
+ script.
+
+ To avoid dependencies to extarnal package (python-m2crypto)
+ we decided to include pre-generated keys-ssl.h based on
+ John Linville public key into CRDA git.
+
+ If any vendor decide to use their own regulatory.bin, and
+ sign it with different keys set, the pre-generated keys-ssl.h
+ file needs to be regenerated.
+ This can be done with supplied key2pub.py script by calling
+ the script:
+
+ -----------------------------------------------------------
+ key2pub.py --ssl ../pubkeys/<public key file> keys-ssl.h
+ -----------------------------------------------------------
