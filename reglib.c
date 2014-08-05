@@ -3,9 +3,7 @@
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <dirent.h>
-#ifdef ANDROID
 #include <limits.h>
-#endif
 #include "reglib.h"
 
 #ifdef USE_OPENSSL
@@ -22,11 +20,7 @@
 #include "reglib.h"
 
 #ifdef USE_OPENSSL
-#ifdef ANDROID
-#include "keys-ssl.h"
-#else
 #include "keys-ssl.c"
-#endif
 #endif
 
 #ifdef USE_GCRYPT
