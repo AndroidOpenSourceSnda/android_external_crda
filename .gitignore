@@ -1,6 +1,6 @@
 *~
 regulatory.sqlite
-#regulatory.bin
+regulatory.bin
 crda
 dump
 intersect
